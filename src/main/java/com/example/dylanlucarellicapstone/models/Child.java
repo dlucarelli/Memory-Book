@@ -14,16 +14,16 @@ public class Child {
     @Column(name = "kidsName")
     private String name;
 
-//    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-//    @JoinTable()
-//    private Collection<Memory> memory;
-//    public Child() {
-//    }
+    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinTable()
+    private Collection<Memory> memory;
+    public Child() {
+    }
 
     public Child(Long id, String name, Collection<Memory> memories) {
         this.id = id;
         this.name = name;
-//        this.memory = memories;
+        this.memory = memories;
     }
 
     public Long getId() {
@@ -42,11 +42,11 @@ public class Child {
         this.name = name;
     }
 
-//    public Collection<Memory> getMemory() {
-//        return memory;
-//    }
-//
-//    public void setMemory(Collection<Memory> memory) {
-//        this.memory = memory;
-//    }
+    public Collection<Memory> getMemory() {
+        return memory;
+    }
+
+    public void setMemory(Collection<Memory> memory) {
+        this.memory = memory;
+    }
 }
