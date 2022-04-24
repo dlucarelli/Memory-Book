@@ -64,7 +64,7 @@ public class ChildController {
     @GetMapping("/deleteChild/{id}")
     public String deleteChild(@PathVariable(value = "id") long id) {
 
-        // call delete employee method
+
         this.childService.deleteChildById(id);
         return "redirect:/";
     }

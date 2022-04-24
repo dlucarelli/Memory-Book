@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="ISO-8859-1">
-    <title>MemoryBook Child</title>
+    <title>MemoryBook Memory</title>
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
           integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
@@ -27,10 +27,10 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link disabled" href="#" th:href="@{/children}">Children</a>
+                    <a class="nav-link active" href="#" th:href="@{/children}">Children</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" href="#" th:href="@{/memories}">Memories</a>
+                    <a class="nav-link disabled" href="#" th:href="@{/memories}">Memories</a>
                 </li>
 
 
@@ -45,24 +45,24 @@
 </nav>
 
 <div class="container my-2">
-    <h1>Children List</h1>
+    <h1>Memory List</h1>
 
-    <a th:href="@{/showNewChildForm}" class="btn btn-primary btn-sm mb-3"> Add Child </a>
+    <a th:href="@{/showNewMemoryForm}" class="btn btn-primary btn-sm mb-3"> Add Memory </a>
 
     <table class="table table-striped table-responsive-md">
         <thead>
         <tr>
-            <th>Child Name</th>
-            <th>Child Age</th>
+            <th>Memory Title</th>
+            <th>Memory Note</th>
             <th> Actions</th>
         </tr>
         </thead>
         <tbody>
-        <tr th:each="children : ${listChildren}">
-            <td th:text="${children.name}"></td>
-            <td th:text="${children.age}"></td>
-            <td><a th:href="@{/showChildUpdate/{id}(id=${children.id})}" class="btn btn-primary">Update</a>
-                <a th:href="@{/deleteChild/{id}(id=${children.id})}" class="btn btn-danger">Delete</a>
+        <tr th:each="memories : ${listMemories}">
+            <td th:text="${memories.title}"></td>
+            <td th:text="${memories.note}"></td>
+            <td><a th:href="@{/showMemoryUpdate/{id}(id=${memories.id})}" class="btn btn-primary">Update</a>
+                <a th:href="@{/deleteMemory/{id}(id=${memories.id})}" class="btn btn-danger">Delete</a>
             </td>
         </tr>
         </tbody>
