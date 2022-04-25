@@ -72,7 +72,7 @@ public class ChildController {
         }
 
         User user = userService.findByEmail(principal.getName());
-        
+
 
         childService.saveChild(child);
         userService.saveUser(user);
@@ -89,8 +89,12 @@ public class ChildController {
     }
 
     @GetMapping("/deleteChild/{id}")
-    public String deleteChild(@PathVariable(value = "id") long id) {
+    public String deleteChild(@PathVariable(value = "id") long id, Principal principal) {
 
+        User user = userService.findByEmail(principal.getName());
+        Child child = childService.getChildById(id);
+
+        userService.deleteChild(user, child);
 
         this.childService.deleteChildById(id);
         return "redirect:/children";

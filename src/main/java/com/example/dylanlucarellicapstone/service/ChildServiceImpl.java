@@ -1,6 +1,7 @@
 package com.example.dylanlucarellicapstone.service;
 
 import com.example.dylanlucarellicapstone.models.Child;
+import com.example.dylanlucarellicapstone.models.Memory;
 import com.example.dylanlucarellicapstone.repositories.ChildRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -45,6 +46,11 @@ public class ChildServiceImpl implements ChildService{
             throw new ChildNotFoundException();
         }
         return child;
+    }
+
+    @Override
+    public void deleteMemory(Child child, Memory memory) {
+        child.getMemory().remove(memory);
     }
 
     @Override

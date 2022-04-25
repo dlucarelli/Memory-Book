@@ -69,6 +69,7 @@
             <td th:text="${children.age}"></td>
             <td><a th:href="@{/showChildUpdate/{id}(id=${children.id})}" class="btn btn-primary">Update</a>
                 <a th:href="@{/deleteChild/{id}(id=${children.id})}" class="btn btn-danger">Delete</a>
+                <a th:href="@{/memories/{id}(id=${children.id})}" class="btn btn-secondary">Memories</a>
             </td>
         </tr>
         </tbody>

@@ -14,7 +14,7 @@
     <hr>
     <h2>Save Memory</h2>
 
-    <form action="#" th:action="@{/saveMemory}" th:object="${memory}" method="POST">
+    <form action="#" th:action="@{/saveMemory/{id}(id=${id})}" th:object="${memory}" method="POST">
         <input type="text" th:field="*{title}" placeholder="Memory Title" class="form-control mb-4 col-4" >
         <div th:if="${#fields.hasErrors('title')}" th:errors="*{title}">Title Error</div>
 

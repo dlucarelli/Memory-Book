@@ -3,7 +3,9 @@ package com.example.dylanlucarellicapstone.models;
 import com.example.dylanlucarellicapstone.security.User;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Objects;
 
 @Entity
 @Table(name = "Child")
@@ -23,9 +25,9 @@ public class Child {
 //    @JoinColumn(name = "user_id")
 //    private User user;
 
-    @OneToMany(mappedBy ="id", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 
-    private Collection<Memory> memory;
+    private Collection<Memory> memory = new ArrayList<>();
 
     public Child() {
     }
@@ -76,4 +78,18 @@ public class Child {
 //    public void setUser(User user) {
 //        this.user = user;
 //    }
+
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Child child = (Child) o;
+        return Objects.equals(id, child.id) && Objects.equals(name, child.name) && Objects.equals(age, child.age) && Objects.equals(memory, child.memory);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, name, age, memory);
+    }
 }

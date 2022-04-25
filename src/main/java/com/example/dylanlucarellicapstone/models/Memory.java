@@ -3,6 +3,7 @@ package com.example.dylanlucarellicapstone.models;
 
 
 import javax.persistence.*;
+import java.util.Objects;
 
 @Entity
 @Table(name = "Memory")
@@ -22,19 +23,21 @@ public class Memory {
     private String note;
 
 
-    @ManyToOne
-    @JoinColumn(name = "child_id")
-    private Child child;
+//    @ManyToOne
+//    @JoinColumn(name = "child_id")
+//    private Child child;
 
     public Memory() {
     }
 
-    public Memory(Long id, String title, String date, String note, Child child) {
+    public Memory(Long id, String title, String date, String note
+//            , Child child
+    ) {
         this.id = id;
         this.title = title;
         this.date = date;
         this.note = note;
-        this.child = child;
+//        this.child = child;
     }
 
     public Long getId() {
@@ -69,11 +72,24 @@ public class Memory {
         this.date = date;
     }
 
-    public Child getChild() {
-        return child;
+//    public Child getChild() {
+//        return child;
+//    }
+//
+//    public void setChild(Child child) {
+//        this.child = child;
+//    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Memory memory = (Memory) o;
+        return Objects.equals(id, memory.id) && Objects.equals(title, memory.title) && Objects.equals(date, memory.date) && Objects.equals(note, memory.note);
     }
 
-    public void setChild(Child child) {
-        this.child = child;
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, title, date, note);
     }
 }

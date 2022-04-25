@@ -1,5 +1,6 @@
 package com.example.dylanlucarellicapstone.security;
 
+import com.example.dylanlucarellicapstone.models.Child;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -47,6 +48,21 @@ public class UserServiceImpl implements UserService {
     @Override
     public User saveUser(User user) {
         return userRepository.save(user);
+    }
+
+    @Override
+    public Child getChildById(User user, long id) {
+        for (Child child : user.getChild()) {
+            if (child.getId() == id) {
+                return child;
+            }
+        }
+        return null;
+    }
+
+    @Override
+    public void deleteChild(User user, Child child) {
+        user.getChild().remove(child);
     }
 
     @Override

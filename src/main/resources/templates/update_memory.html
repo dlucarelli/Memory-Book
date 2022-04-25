@@ -14,7 +14,7 @@
     <hr>
     <h2>Update Memory</h2>
 
-    <form action="#" th:action="@{/saveMemory}" th:object="${memory}" method="POST">
+    <form action="#" th:action="@{/saveUpdateMemory/{childId}(childId=${childId})}" th:object="${memory}" method="POST">
 
         <input type="hidden" th:field="*{id}" />
 

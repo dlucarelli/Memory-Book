@@ -53,7 +53,7 @@
 <div class="container my-2">
     <h1>Memory List</h1>
 
-    <a th:href="@{/showNewMemoryForm}" class="btn btn-primary btn-sm mb-3"> Add Memory </a>
+    <a th:href="@{/showNewMemoryForm/{id}(id=${id})}" class="btn btn-primary btn-sm mb-3"> Add Memory </a>
 
 <!--    <form action="#" th:action="@{/showMemoryByDate}" th:object="${memory}" method="GET">-->
 <!--        <input type="text" th:field="*{m}" placeholder="Search by Date" class="form-control mb-4 col-4" >Find Memory by date-->
@@ -73,8 +73,8 @@
             <td th:text="${memories.title}"></td>
             <td th:text="${memories.date}"></td>
             <td th:text="${memories.note}"></td>
-            <td><a th:href="@{/showMemoryUpdate/{id}(id=${memories.id})}" class="btn btn-primary">Update</a>
-                <a th:href="@{/deleteMemory/{id}(id=${memories.id})}" class="btn btn-danger">Delete</a>
+            <td><a th:href="@{/showMemoryUpdate/{childId}/{id}(childId=${childId}, id=${memories.id})}" class="btn btn-primary">Update</a>
+                <a th:href="@{/deleteMemory/{childId}/{id}(childId=${childId}, id=${memories.id})}" class="btn btn-danger">Delete</a>
             </td>
         </tr>
         </tbody>
