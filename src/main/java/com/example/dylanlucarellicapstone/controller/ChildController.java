@@ -1,6 +1,8 @@
 package com.example.dylanlucarellicapstone.controller;
 
 import com.example.dylanlucarellicapstone.models.Child;
+import com.example.dylanlucarellicapstone.security.User;
+import com.example.dylanlucarellicapstone.security.UserService;
 import com.example.dylanlucarellicapstone.service.ChildService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -12,17 +14,20 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import javax.validation.Valid;
+import java.security.Principal;
 
 @Controller
 public class ChildController {
 
+    private UserService userService;
     private ChildService childService;
 
     public ChildController() {
     }
 
     @Autowired
-    public ChildController(ChildService childService) {
+    public ChildController(UserService userService, ChildService childService) {
+        this.userService = userService;
         this.childService = childService;
     }
 
