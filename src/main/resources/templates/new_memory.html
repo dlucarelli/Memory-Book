@@ -18,6 +18,8 @@
         <input type="text" th:field="*{title}" placeholder="Memory Title" class="form-control mb-4 col-4" >
         <div th:if="${#fields.hasErrors('title')}" th:errors="*{title}">Title Error</div>
 
+        <input type="text" th:field="*{date}" placeholder="01/01/2020" class="form-control mb-4 col-4">
+
         <textarea type="text" th:field="*{note}" placeholder="Something to remember" class="form-control mb-4 col-12"></textarea>
 
         <button type="submit" class="btn btn-info col-2"> Save Memory</button>
@@ -25,6 +27,7 @@
 
     <hr>
     <a th:href="@{/}"> Home</a>
+    <a th:href="@{/memories}"> Memories</a>
 </div>
 </body>
 

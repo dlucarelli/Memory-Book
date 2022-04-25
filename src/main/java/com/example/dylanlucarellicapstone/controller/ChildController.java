@@ -5,6 +5,7 @@ import com.example.dylanlucarellicapstone.security.User;
 import com.example.dylanlucarellicapstone.security.UserService;
 import com.example.dylanlucarellicapstone.service.ChildService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -32,20 +33,21 @@ public class ChildController {
     }
 
     @GetMapping("/children")
-    public String getAllChildren(Model model) {
+    public String getAllChildren(Principal principal, Model model) {
+        User user = userService.findByEmail(principal.getName());
         model.addAttribute("listChildren", childService.getAllChildren());
         return "children";
     }
 
     @GetMapping("/showNewChildForm")
-    public String showNewChildForm(Model model) {
+    public String showNewChildForm(@AuthenticationPrincipal Model model) {
         Child child = new Child();
         model.addAttribute("child", child);
         return "new_child";
     }
 
     @PostMapping("/saveChild")
-    public String saveChild(@ModelAttribute("employee") @Valid Child child,
+    public String saveChild(@ModelAttribute("child") @Valid Child child,
                                BindingResult bindingResult) {
 
         if (bindingResult.hasErrors()) {
@@ -54,7 +56,7 @@ public class ChildController {
 
         // save employee to database
         childService.saveChild(child);
-        return "redirect:/";
+        return "redirect:/children";
     }
 
     @GetMapping("/showChildUpdate/{id}")

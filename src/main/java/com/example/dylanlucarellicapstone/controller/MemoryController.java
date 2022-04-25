@@ -49,7 +49,7 @@ public class MemoryController {
 
         // save employee to database
         memoryService.saveMemory(memory);
-        return "redirect:/";
+        return "redirect:/memories";
     }
 
     @GetMapping("/showMemoryUpdate/{id}")

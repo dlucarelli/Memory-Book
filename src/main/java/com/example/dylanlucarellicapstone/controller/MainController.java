@@ -39,4 +39,5 @@ public class MainController {
         model.addAttribute("email", user.getEmail());
         return "profile";
     }
+
 }

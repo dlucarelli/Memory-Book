@@ -1,5 +1,7 @@
 package com.example.dylanlucarellicapstone.models;
 
+import com.example.dylanlucarellicapstone.security.User;
+
 import javax.persistence.*;
 import java.util.Collection;
 
@@ -17,17 +19,22 @@ public class Child {
     @Column(name = "age")
     private Long age;
 
-    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    @JoinTable()
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
+
+    @OneToMany(mappedBy ="child", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+
     private Collection<Memory> memory;
 
     public Child() {
     }
 
-    public Child(Long id, String name, Long age, Collection<Memory> memories) {
+    public Child(Long id, String name, Long age, User user, Collection<Memory> memories) {
         this.id = id;
         this.name = name;
         this.age = age;
+        this.user = user;
         this.memory = memories;
     }
 
@@ -61,5 +68,13 @@ public class Child {
 
     public void setMemory(Collection<Memory> memory) {
         this.memory = memory;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 }
