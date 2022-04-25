@@ -35,7 +35,7 @@ public class ChildController {
     @GetMapping("/children")
     public String getAllChildren(Principal principal, Model model) {
         User user = userService.findByEmail(principal.getName());
-        model.addAttribute("listChildren", childService.getAllChildren());
+        model.addAttribute("listChildren", user.getChild());
         return "children";
     }
 
@@ -57,6 +57,22 @@ public class ChildController {
         User user = userService.findByEmail(principal.getName());
 
         user.getChild().add(child);
+
+        childService.saveChild(child);
+        userService.saveUser(user);
+        return "redirect:/children";
+    }
+
+    @PostMapping("/saveUpdateChild")
+    public String saveUpdateChild(@ModelAttribute("child") @Valid Child child, Principal principal,
+                            BindingResult bindingResult) {
+
+        if (bindingResult.hasErrors()) {
+            return "new_child";
+        }
+
+        User user = userService.findByEmail(principal.getName());
+        
 
         childService.saveChild(child);
         userService.saveUser(user);
