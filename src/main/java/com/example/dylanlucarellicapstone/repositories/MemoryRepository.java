@@ -7,4 +7,6 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface MemoryRepository extends JpaRepository<Memory, Long> {
     Memory findByTitle(String title);
+
+    Memory findByDate(String date);
 }

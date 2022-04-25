@@ -48,6 +48,15 @@ public class MemoryServiceImpl implements  MemoryService{
     }
 
     @Override
+    public Memory getMemoryByDate(String date) {
+        Memory memory = memoryRepository.findByDate(date);
+        if (date == null) {
+            throw new MemoryNotFoundException();
+        }
+        return memory;
+    }
+
+    @Override
     public void deleteMemoryById(long id) {
         memoryRepository.deleteById(id);
     }

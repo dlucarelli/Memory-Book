@@ -54,7 +54,7 @@ public class ChildController {
             return "new_child";
         }
 
-        // save employee to database
+
         childService.saveChild(child);
         return "redirect:/children";
     }
@@ -73,6 +73,6 @@ public class ChildController {
 
 
         this.childService.deleteChildById(id);
-        return "redirect:/";
+        return "redirect:/children";
     }
 }

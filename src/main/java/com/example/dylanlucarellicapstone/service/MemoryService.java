@@ -13,5 +13,7 @@ public interface MemoryService {
 
     Memory getMemoryByTitle(String title);
 
+    Memory getMemoryByDate(String date);
+
     void deleteMemoryById(long id);
 }

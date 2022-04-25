@@ -61,11 +61,19 @@ public class MemoryController {
         return "update_memory";
     }
 
+    @GetMapping("/memories/{date}")
+    public String showMemoryByDate(@PathVariable String date, Model model) {
+        Memory memoryByDate = memoryService.getMemoryByDate(date);
+
+        model.addAttribute("memoryByDate", memoryByDate);
+        return "memories";
+    }
+
     @GetMapping("/deleteMemory/{id}")
     public String deleteMemory(@PathVariable(value = "id") long id) {
 
 
         this.memoryService.deleteMemoryById(id);
-        return "redirect:/";
+        return "redirect:/memories";
     }
 }

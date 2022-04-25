@@ -23,7 +23,7 @@ public class Child {
     @JoinColumn(name = "user_id")
     private User user;
 
-    @OneToMany(mappedBy ="child", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @OneToMany(mappedBy ="id", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 
     private Collection<Memory> memory;
 
