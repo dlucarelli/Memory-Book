@@ -47,15 +47,19 @@ public class ChildController {
     }
 
     @PostMapping("/saveChild")
-    public String saveChild(@ModelAttribute("child") @Valid Child child,
+    public String saveChild(@ModelAttribute("child") @Valid Child child, Principal principal,
                                BindingResult bindingResult) {
 
         if (bindingResult.hasErrors()) {
             return "new_child";
         }
 
+        User user = userService.findByEmail(principal.getName());
+
+        user.getChild().add(child);
 
         childService.saveChild(child);
+        userService.saveUser(user);
         return "redirect:/children";
     }
 

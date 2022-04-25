@@ -19,9 +19,9 @@ public class Child {
     @Column(name = "age")
     private Long age;
 
-    @ManyToOne
-    @JoinColumn(name = "user_id")
-    private User user;
+//    @ManyToOne
+//    @JoinColumn(name = "user_id")
+//    private User user;
 
     @OneToMany(mappedBy ="id", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 
@@ -30,11 +30,10 @@ public class Child {
     public Child() {
     }
 
-    public Child(Long id, String name, Long age, User user, Collection<Memory> memories) {
+    public Child(Long id, String name, Long age, Collection<Memory> memories) {
         this.id = id;
         this.name = name;
         this.age = age;
-        this.user = user;
         this.memory = memories;
     }
 
@@ -70,11 +69,11 @@ public class Child {
         this.memory = memory;
     }
 
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
-    }
+//    public User getUser() {
+//        return user;
+//    }
+//
+//    public void setUser(User user) {
+//        this.user = user;
+//    }
 }
