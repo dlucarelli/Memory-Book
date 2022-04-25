@@ -2,7 +2,10 @@ package com.example.dylanlucarellicapstone.models;
 
 
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import javax.persistence.*;
+import java.util.Date;
 import java.util.Objects;
 
 @Entity
@@ -16,8 +19,11 @@ public class Memory {
     @Column(name = "title")
     private String title;
 
+
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @Temporal(TemporalType.DATE)
     @Column(name = "date")
-    private String date;
+    private Date date;
 
     @Column(name = "note")
     private String note;
@@ -30,7 +36,7 @@ public class Memory {
     public Memory() {
     }
 
-    public Memory(Long id, String title, String date, String note
+    public Memory(Long id, String title, Date date, String note
 //            , Child child
     ) {
         this.id = id;
@@ -64,11 +70,11 @@ public class Memory {
         this.note = note;
     }
 
-    public String getDate() {
+    public Date getDate() {
         return date;
     }
 
-    public void setDate(String date) {
+    public void setDate(Date date) {
         this.date = date;
     }
 
