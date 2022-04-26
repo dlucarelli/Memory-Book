@@ -13,8 +13,11 @@ This application is for parents to store memories: stories of childhood, picture
 
 ## Daily Progress
 
-4/25/2022(80%)
-Updating README.md on progress
+4/26/2022
+Updated styles and front end features to be consistent across logged in pages
+
+4/25/2022(90%)
+Updating README.md on progress, Updated memory and children functionality to better tie to user
 
 4/24/2022(75%)
 Updating frontend pages to uniformity
@@ -32,6 +35,13 @@ Added Sang's Spring Security information to application, fixed issue with not lo
 Removed rest controller that wasn't effective part of application
 
 4/19/2022(55%)
+Used web security application demo to try web security, then reverted after not making real progress
+
+4/18/2022(55%)
+Created navbar and page layout template
+
+4/15/2022(40%)
+Models and structure for application finished and layout design set for implementation
 
 
 ## User Stories
