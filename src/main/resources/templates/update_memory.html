@@ -26,7 +26,7 @@
 
         <input type="date" th:field="*{date}" placeholder="01/01/2020" class="form-control mb-4 col-4">
 
-        <input type="text" th:field="*{note}" class="form-control mb-4 col-4">
+        <textarea type="text" th:field="*{note}" class="form-control mb-4 col-12"></textarea>
 
         <button type="submit" class="btn btn-info col-2"> Update Memory</button>
     </form>
@@ -34,7 +34,7 @@
     <hr>
 
     <a th:href="@{/}">Home</a>
-    <a th:href="@{/memories/{id}(id=${id})}"> Memories</a>
+    <a th:href="@{/memories/{childId}(childId=${childId})}"> Memories</a>
 </div>
 </body>
 </html>
