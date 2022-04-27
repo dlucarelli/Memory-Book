@@ -6,9 +6,9 @@ This application is for parents to store memories: stories of childhood, picture
 - [Daily Progress](#Daily-Progress)
 - [User Stories](#User-Stories)
 - [Rubric](https://docs.google.com/document/d/1HLKr_fA5qU1hv2aJd7WJ616jocwgIsq72M2WDrX2Fqo/edit?usp=sharing)
-- [Schema Diagram](https://drive.google.com/file/d/1z2q6k44GsUyx3PGf6He0Na6A_To_Q75W/view?usp=sharing)
+- [Schema Diagram](/diagrams/Schema.PNG)
 - [Mockup](https://www.figma.com/file/j6vJprIUQrsd7G65hQZ4fY/Untitled?node-id=0%3A1) *please email [dyllucar@gmail.com](mailto:dyllucar@gmail.com) for access*
-- [Technical Architecture](https://drive.google.com/file/d/1Bry7s2u40DaCE064v7mUSFdPiZlGDqrH/view?usp=sharing)
+- [Technical Architecture](/diagrams/Technical%20Architecture.drawio.png)
 - [Technical Challenges](#Technical-Challenges)
 - [Lessons and Takeaways](#Lessons-and-Takeaways)
 
