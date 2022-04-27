@@ -2,6 +2,7 @@ package com.example.dylanlucarellicapstone.service;
 
 import com.example.dylanlucarellicapstone.models.Memory;
 
+import java.util.Date;
 import java.util.List;
 
 public interface MemoryService {
@@ -13,7 +14,7 @@ public interface MemoryService {
 
     Memory getMemoryByTitle(String title);
 
-    Memory getMemoryByDate(String date);
+    Memory getMemoryByDate(Date date);
 
     void deleteMemoryById(long id);
 }

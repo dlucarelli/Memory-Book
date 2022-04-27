@@ -85,7 +85,7 @@ public class Child {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Child child = (Child) o;
-        return Objects.equals(id, child.id) && Objects.equals(name, child.name) && Objects.equals(age, child.age) && Objects.equals(memory, child.memory);
+        return id.equals(child.id) && Objects.equals(name, child.name) && Objects.equals(age, child.age) && Objects.equals(memory, child.memory);
     }
 
     @Override

@@ -5,6 +5,7 @@ import com.example.dylanlucarellicapstone.repositories.MemoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -48,7 +49,7 @@ public class MemoryServiceImpl implements  MemoryService{
     }
 
     @Override
-    public Memory getMemoryByDate(String date) {
+    public Memory getMemoryByDate(Date date) {
         Memory memory = memoryRepository.findByDate(date);
         if (date == null) {
             throw new MemoryNotFoundException();
