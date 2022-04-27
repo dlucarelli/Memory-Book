@@ -17,7 +17,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import javax.validation.Valid;
 import java.security.Principal;
-import java.util.logging.Logger;
 
 @Controller
 public class MemoryController {
@@ -36,17 +35,10 @@ public class MemoryController {
         this.memoryService = memoryService;
     }
 
-
-
-
     @GetMapping("/memories/{id}")
     public String getAllMemories(@PathVariable(value = "id") long id, Principal principal, Model model) {
         User user = userService.findByEmail(principal.getName());
         Child child = userService.getChildById(user, id);
-
-        Logger logger = Logger.getLogger(child.getName());
-        logger.info("this is the logged child info");
-
         model.addAttribute("listMemories", child.getMemory());
         model.addAttribute("childId", id);
         return "memories";
@@ -62,7 +54,7 @@ public class MemoryController {
 
     @PostMapping("/saveMemory/{id}")
     public String saveMemory(@ModelAttribute("memory") @Valid Memory memory, Principal principal, @PathVariable(value = "id") long id,
-                            BindingResult bindingResult) {
+                             BindingResult bindingResult) {
 
         if (bindingResult.hasErrors()) {
             return "new_memory";
@@ -79,7 +71,7 @@ public class MemoryController {
 
     @PostMapping("/saveUpdateMemory/{childId}")
     public String saveUpdateMemory(@ModelAttribute("memory") @Valid Memory memory, @PathVariable(value = "childId") long id,
-                             BindingResult bindingResult) {
+                                   BindingResult bindingResult) {
 
         if (bindingResult.hasErrors()) {
             return "new_memory";
